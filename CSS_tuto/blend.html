@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .box{
+            display: flex;
+            justify-content: space-around;
+        }
+        .content{
+            flex-basis: 400px;
+            height: 400px;
+            border: 5px solid black;
+        }
+        #b1{
+            background-color: rgba(20,20,20,50);
+            background-size: cover;
+            background-image: url(pepe.jpg);
+            background-blend-mode: difference;
+            background-repeat: no-repeat;
+            
+        }
+        #b1:hover{
+            background-color: powderblue;
+            transition:background-color 2s;
+        }
+        #b2{
+            background-image: url(pepe.jpg);
+            background-size: cover;
+        }
+        #lorem{
+            font-size: 1rem;
+            font-weight: bold;
+            color: black;
+        }
+        #lorem:hover{
+            mix-blend-mode: hue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content" id="b1"></div>
+        <div class="content" id ="b2">
+            <div id="lorem">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem officiis doloribus voluptatem voluptatibus hic eveniet, deserunt laborum optio mollitia aliquid omnis rerum possimus odio voluptates impedit aut nulla quis ut at numquam totam debitis facilis ad fugiat recusandae. Laboriosam dolores magni, in ut, omnis quisquam molestiae eius. Omnis officia numquam alias, nisi ipsam eligendi doloremque minus blanditiis eum qui corrupti est! Placeat ipsum totam distinctio fugit sed doloremque laudantium, natus odio enim alias blanditiis aperiam odit, tempore dolore soluta animi eaque ipsam magni numquam deleniti. Pariatur laudantium molestiae, adipisci minima sequi obcaecati saepe quisquam eaque odit, eum velit tenetur, blanditiis!
+            </div>   
+        </div>
+    </div>
+</body>
+</html>
+
+
