@@ -1,0 +1,75 @@
+
+#header_block{
+    background-color: darkorange;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+body{
+    padding: 20px;
+    margin-top: 40px;
+
+}
+.container{
+    display: flex;
+}
+#top{
+    margin-top: 0px;
+    justify-content: space-between;
+}
+#top #company_logo{
+    flex-basis: 300px;
+    flex-shrink: 1;
+    border: 1px solid blue;
+}
+#top #rating{
+    flex-basis: 300px;
+    flex-shrink: 2;
+    border: 1px solid blue;
+}
+#header{
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid;
+    background-color: aliceblue;
+    margin-top:10px;
+}
+#main{
+    background-color: antiquewhite;
+    flex-direction: column;
+}
+#main #upperbox{
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#main #lowerbox{
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#upperbox #graph_chart{
+    flex-grow: 1;
+    flex-basis: 400px;
+    border: 1px solid tomato;
+}
+#upperbox #explanatory{
+    flex-grow: 3;
+    border: 1px solid tomato;
+}
+#lowerbox #indicators{
+    border: 1px solid tomato;
+    flex-basis: 300px;
+}
+#indicators li{
+    text-align: justify;
+}
+#lowerbox #financial_statements{
+    border: 1px solid tomato;
+}
+#footer{
+    justify-content: flex-end;
+}
