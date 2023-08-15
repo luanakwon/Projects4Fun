@@ -45,3 +45,12 @@ function concat_demo(){
     const myChildren = arr1.concat("Peter"); 
     document.getElementById('box').innerHTML = myChildren;
 }
+function display_date(){
+    const display = document.getElementById('box');
+    const d = new Date();
+    display.innerHTML = `
+        raw : ${d}<br>
+        DateString : ${d.toDateString()}<br>
+        UTCString : ${d.toUTCString()}<br>
+        ISOString : ${d.toISOString()}`;
+}
