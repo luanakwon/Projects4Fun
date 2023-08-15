@@ -35,8 +35,13 @@ function parse_demo(){
 }
 // foreach is not like others in js
 function foreach_demo(){
-    let cars = ['bmw','mercedes','audi','kia'];
+    const cars = ['bmw','mercedes','audi','kia'];
     let text = '<ul>';
     cars.forEach((value) => {text += `<li>${value}</li>`});
     document.getElementById('box').innerHTML = text + '</ul>'
+}
+function concat_demo(){
+    const arr1 = ["Emil", "Tobias", "Linus"];
+    const myChildren = arr1.concat("Peter"); 
+    document.getElementById('box').innerHTML = myChildren;
 }
