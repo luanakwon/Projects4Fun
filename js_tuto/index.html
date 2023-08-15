@@ -2,10 +2,13 @@
 <html>
     <head>
         <style>
+            body{
+                background-color: dimgray;
+            }
             #box{
-                width: 100px;
-                height: 100px;
-                margin: 100px;
+                width: 800px;
+                height: auto;
+                margin: 20px;
                 background-color: burlywood;
                 border: 1px solid black;
             }
@@ -13,10 +16,22 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <button onclick="bright()">Execute</button>
-        <button onclick="dark()">Execute2</button>
-        <button onclick="raiseAlert()">Execute3</button>
+        <div id="buttons">
+            <button type='button' onclick="bright()">light</button>
+            <button type='button' onclick="dark()">dark</button>
+            <button type='button' onclick="raiseAlert()">alert</button>
+            <button type='button' onclick="match(/ain/g)">
+                match('ain')</button>
+            <button type='button' onclick='parse_demo()'>parse demo</button>
+            <button type='button' onclick='foreach_demo()'>foreach demo</button>
+        </div>
         <div id="text">demo text</div>
-        <div id="box">sdfadf</div>
+        <div id="box">
+            The rain in SPAIN stays mainly in the plain
+        </div>
+        <h2>Other pages</h2>
+        <ul>
+            <li><a href='calculator.html'>Calculator</a></li>
+        </ul>
     </body>
 </html>
