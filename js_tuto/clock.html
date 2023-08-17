@@ -28,11 +28,6 @@
                 position: absolute;
                 transform: translate(-50%,50%);
             }
-            /*@keyframes go_round{
-                0%   {transform: rotate(0deg);}
-                50%  {transform: rotate(180deg);}
-                100% {transform: rotate(360deg);}
-            }*/
             #hour, #min, #sec{
                 position: absolute;
                 background-color: black;
@@ -40,28 +35,22 @@
                 left: 50%;
                 transform: translate(-50%,0);
                 transform-origin: top;
-                /*animation-name: go_rfound;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;*/
             }
             #hour{
                 width: 3px;
                 height: 30%;
-                /*animation-duration: 43200s;*/
             }
             #min{
                 width: 3px;
                 height: 40%;
-                /*animation-duration: 3600s;*/
             }
             #sec{
                 width: 1px;
                 height: 45%;
-                /*animation-duration: 60s;*/
             }
         </style>
     </head>
-    <body onload='spreadDigits();setTime();'>
+    <body onload='spreadDigits();setTime();setTheme();'>
         <header></header>
         <span id="face">
             <div class="parts">
