@@ -1,6 +1,5 @@
 function spreadDigits(){
     const digits = document.getElementsByClassName('digit');
-    console.log(digits);
     
     for (let i=0;i<digits.length;i++){
         // theta = angle from 12 O'clock
@@ -17,29 +16,31 @@ function setTime(){
     let min_hand = document.getElementById('min');
     let sec_hand = document.getElementById('sec');
     let d = new Date();
+    let utc_sec = (d.getTime()/1000)%86400;
+    let cur_sec = utc_sec +(d.getHours()-d.getUTCHours())*3600;
     
     hour_hand.animate([
-        {transform: `rotate(${d.getHours()%12*30-180}deg)`},
-        {transform: `rotate(${d.getHours()%12*30}deg)`},
-        {transform: `rotate(${d.getHours()%12*30+180}deg)`}
+        {transform: `rotate(${cur_sec/120-180}deg)`},
+        {transform: `rotate(${cur_sec/120}deg)`},
+        {transform: `rotate(${cur_sec/120+180}deg)`}
     ],{
         duration: 43200000,
         iterations: Infinity
     });
     
     min_hand.animate([
-        {transform: `rotate(${d.getMinutes()*6-180}deg)`},
-        {transform: `rotate(${d.getMinutes()*6}deg)`},
-        {transform: `rotate(${d.getMinutes()*6+180}deg)`}
+        {transform: `rotate(${cur_sec/10-180}deg)`},
+        {transform: `rotate(${cur_sec/10}deg)`},
+        {transform: `rotate(${cur_sec/10+180}deg)`}
     ],{
         duration: 3600000,
         iterations: Infinity
     });
     
     sec_hand.animate([
-        {transform: `rotate(${d.getSeconds()*6-180}deg)`},
-        {transform: `rotate(${d.getSeconds()*6}deg)`},
-        {transform: `rotate(${d.getSeconds()*6+180}deg)`}
+        {transform: `rotate(${cur_sec*6-180}deg)`},
+        {transform: `rotate(${cur_sec*6}deg)`},
+        {transform: `rotate(${cur_sec*6+180}deg)`}
     ],{
         duration: 60000,
         iterations: Infinity
