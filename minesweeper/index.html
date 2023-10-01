@@ -9,8 +9,18 @@
 <body>
     <div class="container">
         <h1>Minesweeper</h1>
+        <strong><div id='flag_info'>Flag : 0</div></strong>
         <div class="board" id="board"></div>
-        <button id="reset">New Game</button>
+        <div class="modes">
+            <input type="radio" id="easyMode" name="gameMode" value="easy" checked>
+            <label for="easyMode">Easy</label>
+
+            <input type="radio" id="mediumMode" name="gameMode" value="medium">
+            <label for="mediumMode">Medium</label>
+
+            <input type="radio" id="hardMode" name="gameMode" value="hard">
+            <label for="hardMode">Hard</label>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
