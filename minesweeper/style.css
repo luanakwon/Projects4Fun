@@ -5,6 +5,15 @@
     flex-direction: column;
     align-items: center;
 }
+.info { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+.info > div {
+    font-weight: bold;
+    text-align: center;
+}
 
 .board {
     display: grid;

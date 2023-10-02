@@ -2,16 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const board = document.getElementById('board');
     const modes = document.querySelector('.modes');
     const infoDiv = document.getElementById('flag_info');
+    const timerDiv = document.getElementById('timer');
+    let gameTimer;
+    let seconds = 0;
+    let dt = 0;
     let gridSize = 10;
     let numMines = 12;
     let cells = [];
-    let numCellsFlagged = 0; // increase whe rightclick
+    let numCellsFlagged = 0;
     let numEmptyFound = 0;
+    let allowClicks = true;
 
     // Define difficulties per game mode
     const gameModes = {
         easy: {gridSize: 10, numMines: 12},
-        medium: {gridSize: 16, numMines: 40},
         hard: {gridSize: 22, numMines: 99}
     }
     
@@ -24,13 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize the game board
     function initializeBoard() {
+        // initialize board style
         board.innerHTML = '';
         let cellSize = Math.floor(400/gridSize-2);
         board.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
         board.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
+        // initialize in-game arguments
         numCellsFlagged = 0;
         numEmptyFound = 0;
+        allowClicks = true;
+        // display num of mines
         infoDiv.innerHTML = 'Flag : '+numMines;
+        // initialize cells
         cells = [];
         for (let i = 0; i < gridSize; i++) {
             const row = [];
@@ -59,9 +68,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listener for cell clicks
+    // restart timer when first board click occurs
+    function restartTimer() {
+        dt = 0;
+        seconds = 0;
+        timerDiv.innerHTML = 'Time : 0s';
+        if (typeof gameTimer !== 'undefined'){
+            clearInterval(gameTimer);
+        }
+        gameTimer = setInterval(() => {
+            seconds+=dt;
+            timerDiv.innerHTML = `Time : ${seconds}s`;
+        }, 1000);
+        board.addEventListener('click', (e) => {
+            console.log('timerstart');
+            dt = 1;
+        }, {once: true});
+    }
+ 
+    // stop timer when cleared | gameover
+    function stopTimer() {
+        clearInterval(gameTimer);
+    }
+
+    // Event listener for cell left clicks
     board.addEventListener('click', (e) => {
         const cell = e.target;
+        if (!allowClicks) {return;}
         if (cell.classList.contains('cell') && !cell.classList.contains('flagged')){
             if (!cell.classList.contains('revealed')) {
                 const row = parseInt(cell.getAttribute('data-row'));
@@ -70,8 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Game over
                     cell.style.backgroundColor = '#f00';
                     revealMines();
-                    //alert('Game over!');
-                    //TODO disallow board clicks
+                    allowClicks = false;
+                    stopTimer();
                     infoDiv.innerHTML = 'Game Over..';
                 } else {
                     cell.style.backgroundColor = '#ccc';
@@ -86,8 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Game Clear check
                 if(numEmptyFound + numMines === gridSize*gridSize) {
-                    //alert('GameClear');
-                    //TODO disallow board clicks
+                    allowClicks = false;
+                    stopTimer();
                     infoDiv.innerHTML = '!!Congratulations!!'
                 }
                 console.log(numEmptyFound);
@@ -99,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     board.addEventListener('contextmenu', (e) => {
         e.preventDefault(); // Prevent the default context menu
         const cell = e.target;
+        if (!allowClicks) {return;}
         if (cell.classList.contains('cell')){
             if (!cell.classList.contains('revealed')) {
                 // Add your custom logic here, e.g., flagging the cell
@@ -109,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 infoDiv.innerHTML = 'Flag : ' + (numMines - numCellsFlagged);
             }
         }
-        
     });
 
     // Event listener for the gamemode group
@@ -117,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGameMode();
         initializeBoard();
         generateMines();
+        restartTimer();
     });
     
     // Count adjacent mines
@@ -177,4 +211,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGameMode();
     initializeBoard();
     generateMines();
+    restartTimer();
 });
