@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: dimgray;
+            }
+            #box{
+                width: 800px;
+                height: auto;
+                margin: 20px;
+                background-color: burlywood;
+                border: 1px solid black;
+            }
+        </style>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="buttons">
+            <button type='button' onclick="bright()">light</button>
+            <button type='button' onclick="dark()">dark</button>
+            <button type='button' onclick="raiseAlert()">alert</button>
+            <button type='button' onclick="match(/ain/g)">
+                match('ain')</button>
+            <button type='button' onclick='parse_demo()'>parse demo</button>
+            <button type='button' onclick='foreach_demo()'>foreach demo</button>
+            <button type='button' onclick='concat_demo()'>concat demo</button><button type='button' onclick='display_date()'>Display date</button>
+        </div>
+        <div id="text">demo text</div>
+        <div id="box">
+            The rain in SPAIN stays mainly in the plain
+        </div>
+        <h2>Other pages</h2>
+        <ul>
+            <li><a href='calculator.html'>Calculator</a></li>
+            <li><a href='clock.html'>Clock</a></li>
+        </ul>
+    </body>
+</html>

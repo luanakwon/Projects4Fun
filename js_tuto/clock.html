@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='clock.js'></script>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                background-color: darkgray;
+            }
+            #face{
+                width: 300px;
+                height: 300px;
+                background-color: white;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .parts{
+                position: relative;
+                width: 90%;
+                height: 90%;
+            }
+            .digit{
+                position: absolute;
+                transform: translate(-50%,50%);
+            }
+            #hour, #min, #sec{
+                position: absolute;
+                background-color: black;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,0);
+                transform-origin: top;
+            }
+            #hour{
+                width: 3px;
+                height: 30%;
+            }
+            #min{
+                width: 3px;
+                height: 40%;
+            }
+            #sec{
+                width: 1px;
+                height: 45%;
+            }
+        </style>
+    </head>
+    <body onload='spreadDigits();setTime();setTheme();'>
+        <header></header>
+        <span id="face">
+            <div class="parts">
+                <div class='digit'>1</div>
+                <div class='digit'>2</div>
+                <div class='digit'>3</div>
+                <div class='digit'>4</div>
+                <div class='digit'>5</div>
+                <div class='digit'>6</div>
+                <div class='digit'>7</div>
+                <div class='digit'>8</div>
+                <div class='digit'>9</div>
+                <div class='digit'>10</div>
+                <div class='digit'>11</div>
+                <div class='digit'>12</div>
+                <div id='hour'></div>
+                <div id='min'></div>
+                <div id='sec'></div>
+            </div>
+        </span>
+        <a href='index.html'><b>메인</b></a>
+    </body>
+</html>

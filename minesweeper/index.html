@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Minesweeper</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Minesweeper</h1>
+        <div class='info'><div id='flag_info'>Flag : 0</div><div id='timer'>Time : 0s</div></div>
+        <div class="board" id="board"></div>
+        <div class="modes">
+            <input type="radio" id="easyMode" name="gameMode" value="easy" checked>
+            <label for="easyMode">Easy</label>
+
+            <input type="radio" id="mediumMode" name="gameMode" value="medium">
+            <label for="mediumMode">Medium</label>
+
+            <input type="radio" id="hardMode" name="gameMode" value="hard">
+            <label for="hardMode">Hard</label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

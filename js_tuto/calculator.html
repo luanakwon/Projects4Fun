@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <script src='cal_script.js'></script>
+        <style>
+            #numpad{
+                display: grid;
+                grid-template-columns: 50px 50px 50px;
+                grid-template-rows: repeat(4,1fr);
+            }
+        </style>
+    </head>
+    <body>
+        <h3 id="display">0.0</h3>
+        <div id="numpad">
+            <button type='button' onclick='press(1)'>1</button>
+            <button type='button' onclick='press(2)'>2</button>
+            <button type='button' onclick='press(3)'>3</button>
+            <button type='button' onclick='press(4)'>4</button>
+            <button type='button' onclick='press(5)'>5</button>
+            <button type='button' onclick='press(6)'>6</button>
+            <button type='button' onclick='press(7)'>7</button>
+            <button type='button' onclick='press(8)'>8</button>
+            <button type='button' onclick='press(9)'>9</button>
+            <button type='button' onclick='press(0)'>0</button>
+        </div>
+        <div id="operator">
+            <button type='button' onclick="press('+')">+</button>
+            <button type='button' onclick="press('-')">-</button>
+            <button type='button' onclick="press('/')">/</button>
+            <button type='button' onclick="press('*')">*</button>
+        </div>
+        <a href='index.html'>main page</a>
+    </body>
+</html>
